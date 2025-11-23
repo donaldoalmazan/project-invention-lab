@@ -3,6 +3,8 @@
                 --card: #f7f7f7;
                 --accent: #ecf95a;
                 --accent-soft: #ecf95af2;
+                --button-bg: #111111;
+                --button-text: #ffffff;
                 --text-main: #111111;
                 --text-muted: #666666;
                 --pill: #ffffff;
@@ -71,7 +73,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #f6e843;
+                color: var(--accent);
                 font-weight: 700;
                 font-size: 18px;
             }
@@ -113,8 +115,8 @@
 
             .nav-cta {
                 padding: 10px 18px;
-                background: #111111;
-                color: #ffffff;
+                background: var(--button-bg);
+                color: var(--button-text);
                 border-radius: var(--radius-pill);
                 font-size: 13px;
                 font-weight: 500;
@@ -227,8 +229,8 @@
             }
 
             .btn-primary {
-                background: #111111;
-                color: #ffffff;
+                background: var(--button-bg);
+                color: var(--button-text);
                 box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
             }
 
