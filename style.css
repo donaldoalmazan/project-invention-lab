@@ -476,8 +476,10 @@
 
             .video-layout {
                 display: grid;
-                grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-                gap: 22px;
+                /* Single-column layout so the video can be centered */
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 0;
                 align-items: center;
                 margin-top: 18px;
             }
@@ -485,6 +487,8 @@
             .video-wrapper {
                 position: relative;
                 width: 100%;
+                /* Constrain maximum visual width so the iframe centers nicely on large screens */
+                max-width: 900px;
                 padding-bottom: 56.25%; /* 16:9 */
                 border-radius: 24px;
                 overflow: hidden;
