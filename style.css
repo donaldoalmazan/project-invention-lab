@@ -1,13 +1,13 @@
             :root {
-                --bg: #f4f4f4;
-                --card: #f7f7f7;
-                --accent: #ecf95a;
-                --accent-soft: #ecf95af2;
+                --bg: #f3f1e5;
+                --card: #f8f7f1;
+                --accent: #d3ff5c;
+                --accent-soft: #d3ff5cf2;
                 --button-bg: #111111;
                 --button-text: #ffffff;
                 --text-main: #111111;
                 --text-muted: #666666;
-                --pill: #ffffff;
+                --pill: #f8f7f1;
                 --pill-border: #e1e1e1;
                 --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
                 --radius-xl: 30px;
