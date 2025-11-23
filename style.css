@@ -244,15 +244,17 @@
             }
 
             .hero-visual {
-                background: #161616;
+                /* Remove the dark background so the image no longer appears framed in black */
+                background: transparent;
                 border-radius: 28px;
                 padding: 16px;
-                color: #f5f5f5;
+                /* inherit text color from the surrounding card to avoid a contrasting light text color */
+                color: inherit;
             }
 
             .hero-visual-inner {
-                border-radius: 22px;
-                padding: 16px;
+                border-radius: 10px;
+                padding: 5px;
                 background: radial-gradient(
                     circle at top left,
                     #f6e843,
@@ -270,6 +272,13 @@
                 justify-content: space-between;
                 align-items: center;
                 font-size: 11px;
+            }
+
+            .hero-image {
+                width: 100%;
+                border-radius: 14px;
+                margin-top: 6px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             }
 
             .hero-tag {
@@ -329,8 +338,9 @@
 
             .feature-grid {
                 display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 12px;
+                /* Use three columns by default so the toolkit fits nicer in wider windows */
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 16px;
                 margin-top: 24px;
             }
 
@@ -618,7 +628,7 @@
                 }
             }
 
-            @media (max-width: 720px) {
+            @media (max-width: 900px) {
                 header {
                     flex-direction: column;
                     align-items: flex-start;
@@ -641,12 +651,14 @@
                 }
 
                 .feature-grid {
+                    /* Switch to two columns at medium widths */
                     grid-template-columns: repeat(2, minmax(0, 1fr));
                 }
             }
 
-            @media (max-width: 520px) {
+            @media (max-width: 560px) {
                 .feature-grid {
+                    /* Single column on narrow screens */
                     grid-template-columns: 1fr;
                 }
             }
