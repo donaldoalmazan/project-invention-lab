@@ -400,6 +400,18 @@
                 box-shadow: 0 8px 18px rgba(0,0,0,0.06);
             }
 
+            /* Launch button only visible when card is active */
+            .feature-launch {
+                display: none;
+                margin-top: 8px;
+                text-decoration: none;
+            }
+
+            .feature-card.active .feature-launch,
+            .feature-card[aria-selected="true"] .feature-launch {
+                display: inline-flex;
+            }
+
             .feature-display {
                 display: flex;
                 align-items: center;
