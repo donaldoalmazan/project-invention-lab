@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <nav>
-                        <a href="#how-it-works">Toolkit</a>
+                        <a href="#toolkit">Toolkit</a>
                         <a href="#demo">Demo video</a>
                         <a href="#build">How it was built</a>
                         <a class="nav-cta" href="#get-started">
@@ -58,7 +58,7 @@
 
                                 <h1 class="hero-heading">
                                     Guide your next hardware project with AI-powered
-                                    prompts.
+                                    interface.
                                 </h1>
 
                                 <p class="hero-text">
@@ -80,8 +80,8 @@
                                     <!-- Replace '#' with your actual app link -->
                                     <a
                                         class="btn-primary"
-                                        href="#"
-                                        target="_blank"
+                                        href="#toolkit"
+                                        target="_self"
                                         rel="noopener"
                                     >
                                         Start a New Project →
@@ -95,7 +95,7 @@
 
                             <div class="hero-visual">
                                 <img
-                                    src="Project-Invention-Lab.png"
+                                    src="images/Project-Invention-Lab.png"
                                     alt="Product Invention Lab interface showing AI prompts and project steps."
                                     class="hero-image"
                                 />
@@ -104,7 +104,7 @@
                     </section>
 
                     <!-- HIGH LEVEL FEATURES -->
-                    <section class="card" id="how-it-works">
+                    <section class="card" id="toolkit">
                         <div>
                             <div class="section-label">Toolkit overview</div>
                             <h2 class="section-heading">
@@ -113,44 +113,35 @@
                             </h2>
                             <p class="section-subtitle">
                                 Each phase of the process comes with focused AI
-                                prompts that keep students on track: define,
-                                brainstorm, then prototype.
+                                prompts that keep students on track: defining the problem,
+                                brainstorming, then prototyping.
                             </p>
                         </div>
 
-                        <div class="feature-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">①</div>
-                                <div class="feature-title">
-                                    Define the Problem
-                                </div>
-                                <div class="feature-text">
-                                    Build empathy, clarify user needs, and
-                                    choose a problem worth solving before
-                                    touching any hardware.
-                                </div>
+                        <!-- Interactive toolkit layout: stacked cards on the left, preview image on the right -->
+                        <div class="toolkit-layout">
+                            <div class="feature-list" role="list">
+                                <button class="feature-card" data-image="images/Project-Invention-Lab.png" aria-selected="true">
+                                    <!-- <div class="feature-icon">①</div> -->
+                                    <div class="feature-title">① Define the Problem</div>
+                                    <div class="feature-text">Build empathy, clarify user needs, and choose a problem worth solving before touching any hardware.</div>
+                                </button>
+
+                                <button class="feature-card" data-image="images/Ideation-Assistant.png" aria-selected="false">
+                                    <!-- <div class="feature-icon">②</div> -->
+                                    <div class="feature-title">② Brainstorm Ideas</div>
+                                    <div class="feature-text">Generate lots of directions quickly, then use AI to filter for promising concepts and project scope.</div>
+                                </button>
+
+                                <button class="feature-card" data-image="images/Prototype-Assistant.png" aria-selected="false">
+                                    <!-- <div class="feature-icon">③</div> -->
+                                    <div class="feature-title">③ Prototype Solutions</div>
+                                    <div class="feature-text">Translate ideas into circuits, code, and testable physical prototypes using Arduino or Raspberry Pi.</div>
+                                </button>
                             </div>
-                            <div class="feature-card highlight">
-                                <div class="feature-icon">②</div>
-                                <div class="feature-title">
-                                    Brainstorm Ideas
-                                </div>
-                                <div class="feature-text">
-                                    Generate lots of directions quickly, then
-                                    use AI to filter for promising concepts and
-                                    project scope.
-                                </div>
-                            </div>
-                            <div class="feature-card">
-                                <div class="feature-icon">③</div>
-                                <div class="feature-title">
-                                    Prototype Solutions
-                                </div>
-                                <div class="feature-text">
-                                    Translate ideas into circuits, code, and
-                                    testable physical prototypes using Arduino
-                                    or Raspberry Pi.
-                                </div>
+
+                            <div class="feature-display" aria-hidden="false">
+                                <img id="feature-display-image" src="images/Project-Invention-Lab.png" alt="Feature preview" class="feature-preview-image" />
                             </div>
                         </div>
                     </section>
@@ -281,6 +272,41 @@
         <script>
             document.getElementById("year").textContent =
                 new Date().getFullYear();
+        </script>
+        <script>
+            // Interactive toolkit: clicking a feature card highlights it and swaps the preview image
+            (function() {
+                const cards = document.querySelectorAll('.feature-list .feature-card');
+                const display = document.getElementById('feature-display-image');
+
+                if (!cards.length || !display) return;
+
+                function activateCard(card) {
+                    cards.forEach(c => {
+                        c.classList.remove('active');
+                        c.setAttribute('aria-selected', 'false');
+                    });
+                    card.classList.add('active');
+                    card.setAttribute('aria-selected', 'true');
+                    const img = card.getAttribute('data-image');
+                    if (img) display.src = img;
+                }
+
+                cards.forEach((card, i) => {
+                    // make keyboard navigable
+                    card.setAttribute('tabindex', '0');
+                    card.addEventListener('click', () => activateCard(card));
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            activateCard(card);
+                        }
+                    });
+                });
+
+                // activate the first card by default
+                activateCard(cards[0]);
+            })();
         </script>
     </body>
 </html>
