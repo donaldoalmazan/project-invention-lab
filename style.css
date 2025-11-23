@@ -400,16 +400,19 @@
                 box-shadow: 0 8px 18px rgba(0,0,0,0.06);
             }
 
-            /* Launch button only visible when card is active */
+            /* Launch button only visible when card is active; right-align inside the card */
             .feature-launch {
                 display: none;
                 margin-top: 8px;
                 text-decoration: none;
+                /* when shown, align to the right of the card (parent is a column flex container) */
+                align-self: flex-end;
             }
 
             .feature-card.active .feature-launch,
             .feature-card[aria-selected="true"] .feature-launch {
                 display: inline-flex;
+                align-self: flex-end;
             }
 
             .feature-display {
