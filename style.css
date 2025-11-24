@@ -194,7 +194,7 @@
 
             .hero-body {
                 display: grid;
-                grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
                 align-items: center;
                 gap: 26px;
                 margin-top: 20px;
